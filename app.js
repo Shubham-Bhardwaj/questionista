@@ -18,7 +18,7 @@ const options = {
 const connection = mysql.createPool(options);
 const sessionStore = new MySQLStore({}, connection);
 
-app.set("view engine", "ejs");
+// app.set("view engine", "ejs");
 app.set("views", "views");
 
 app.use(express.json());
@@ -41,7 +41,7 @@ app.use(
 );
 
 app.use("/", (req, res, next) => {
-  res.render("index");
+  res.sendFile(path.join(__dirname, "views", "index.html"));
 });
 
 app.listen(3000);
