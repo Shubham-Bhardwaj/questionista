@@ -25,9 +25,19 @@ const loggedIn = (userId) => {
   logout.textContent = "Logout";
   document.querySelector(".login").appendChild(logout);
 
+  logout.addEventListener("click", () => {
+    fetch("/auth/logout").then((res) => {
+        console.log(res);
+        console.log('logging out');
+        // alert("Logged out Successfully!");
+        location.reload();
+      
+    });
+
+  });
+
   answeredByMe.addEventListener("click", () => {
     if (userId != null) {
-        
       loadQuestions(userId, false, true);
     }
   });
@@ -36,9 +46,10 @@ const loggedIn = (userId) => {
       loadQuestions(userId, true, false);
     }
   });
-  askQuestion.addEventListener("click", ()=>{
-      createQuestion();
-  })
+  askQuestion.addEventListener("click", () => {
+    createQuestion();
+    loadQuestions(userId, false, false);
+  });
 };
 
 export { loggedIn };
