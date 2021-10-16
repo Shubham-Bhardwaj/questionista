@@ -1,5 +1,4 @@
-import { loggedIn } from "./loggedIn.js";
-const postlogin = () => {
+function createQuestion() {
   const box = document.createElement("div");
   box.className = "modal";
   const boxContent = document.createElement("div");
@@ -8,38 +7,38 @@ const postlogin = () => {
   box.appendChild(boxContent);
   const head = document.createElement("div");
   head.className = "head";
-  head.innerHTML = "<h1>Welcome to Questionista!!!</h1><br><h2>Login Here</h2>";
+  head.innerHTML = "<h2>Post your question here</h2>";
   boxContent.appendChild(head);
   const input_div = document.createElement("div");
   input_div.className = "input_div";
   boxContent.appendChild(input_div);
-  const username = document.createElement("input");
-  username.className = "userdata";
-  username.placeholder = "Enter your Email ID...";
-  input_div.appendChild(username);
-  const password = document.createElement("input");
-  password.className = "userdata";
-  password.type = "password";
-  password.placeholder = "Enter your Password...";
-  input_div.appendChild(password);
-  const register = document.createElement("button");
-  register.textContent = "Login";
-  register.className = "register";
-  input_div.appendChild(register);
+  const title = document.createElement("input");
+  title.className = "title";
+  title.placeholder = "Enter the title of the question...";
+  input_div.appendChild(title);
+  const summary = document.createElement("input");
+  summary.className = "summary";
+  summary.placeholder = "Enter the summary of the question...";
+  input_div.appendChild(summary);
+  const submit = document.createElement("button");
+  submit.textContent = "Submit";
+  submit.className = "register";
+  input_div.appendChild(submit);
   const cancel = document.createElement("button");
   cancel.textContent = "Cancel";
   cancel.className = "register";
   input_div.appendChild(cancel);
   document.querySelector(".modal").style.display = "block";
-  register.addEventListener("click", () => {
-    fetch("/auth/login", {
+
+  submit.addEventListener("click", () => {
+    fetch("/questions/create-question", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username: username.value,
-        password: password.value,
+        title: title.value,
+        summary: summary.value,
       }),
     })
       .then((res) => {
@@ -47,14 +46,17 @@ const postlogin = () => {
       })
       .then((data) => {
         console.log(data.message);
-        username.value = " ";
-        password.value = " ";
-        loggedIn(data.user.id);
+        const msg = document.createElement("div");
+        msg.className = "msg";
+        msg.textContent = data.message;
+        boxContent.appendChild(msg);
+        title.value = " ";
+        summary.value = " ";
       });
   });
   cancel.addEventListener("click", () => {
     document.querySelector(".modal").remove();
   });
-};
+}
 
-export { postlogin };
+export { createQuestion };

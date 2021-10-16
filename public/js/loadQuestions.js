@@ -11,6 +11,7 @@ function loadQuestions(userId, askedByMe, answeredByMe) {
     }),
   })
     .then((res) => {
+        console.log(res.json());
       return res.json();
     })
     .then((data) => {
@@ -18,7 +19,7 @@ function loadQuestions(userId, askedByMe, answeredByMe) {
         document.querySelector(".big").remove();
       const big = document.createElement("div");
       big.className = "big";
-      Container.appendChild(big);
+      document.querySelector('.Container').appendChild(big);
       const question = document.createElement("div");
       question.className = "question";
       big.appendChild(question);

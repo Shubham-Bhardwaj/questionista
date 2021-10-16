@@ -1,4 +1,5 @@
 import { loadQuestions } from "./loadQuestions.js";
+import { createQuestion } from "./createQuestion.js";
 
 const loggedIn = (userId) => {
   document.querySelector(".modal").remove();
@@ -11,9 +12,13 @@ const loggedIn = (userId) => {
   const askedByMe = document.createElement("button");
   askedByMe.id = "askedByMe";
   askedByMe.textContent = "Asked By Me";
+  const askQuestion = document.createElement("button");
+  askQuestion.id = "askQuestion";
+  askQuestion.textContent = "Ask a Question";
   const navHomebtn = document.querySelector(".home");
   navHomebtn.appendChild(answeredByMe);
   navHomebtn.appendChild(askedByMe);
+  navHomebtn.appendChild(askQuestion);
 
   const logout = document.createElement("button");
   logout.id = "logout";
@@ -31,6 +36,9 @@ const loggedIn = (userId) => {
       loadQuestions(userId, true, false);
     }
   });
+  askQuestion.addEventListener("click", ()=>{
+      createQuestion();
+  })
 };
 
 export { loggedIn };
