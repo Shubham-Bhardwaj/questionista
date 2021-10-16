@@ -57,9 +57,9 @@ const postsignup = () => {
         msg.className = "msg";
         msg.textContent = data.message;
         boxContent.appendChild(msg);
-        username.value = " ";
-        password.value = " ";
-        confirmPassword.value = " ";
+        username.value = "";
+        password.value = "";
+        confirmPassword.value = "";
       });
   });
   cancel.addEventListener("click", () => {

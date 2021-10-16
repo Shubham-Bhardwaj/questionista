@@ -50,8 +50,9 @@ function createQuestion() {
         msg.className = "msg";
         msg.textContent = data.message;
         boxContent.appendChild(msg);
-        title.value = " ";
-        summary.value = " ";
+        title.value = "";
+        summary.value = "";
+        return;
       });
   });
   cancel.addEventListener("click", () => {
