@@ -1,0 +1,92 @@
+.Container{
+  width: 80%;
+  height: 100%;
+  margin-top: 25px;
+  margin: auto;
+  background-color: white;
+  padding: 20px;
+  border: solid;
+  border-radius: 10px;
+}
+
+h1 {
+  color: black;
+  text-align: center;
+}
+h2{
+  color: black;
+  text-align: center;
+}
+
+body {
+  background-color: grey;
+    width: 100%;
+}
+
+ul{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  flex-flow: wrap;
+  height: 50px;
+  align-content: center;
+  padding: 5px;
+  background-color: #0000002e;
+  border-width: medium;
+  border: outset;
+  border-radius: 10px;
+  border-left: inset;
+  border-top: inset;
+}
+
+.login{
+  margin-left: auto
+}
+button{
+  background-color: black;
+    color: whitesmoke;
+    font-size: medium;
+    border-block-color: white;
+    border-radius: 7px;
+    text-align: center;
+    padding: 4px;
+    margin: 2px;
+}
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+.modal-content {
+  background-color: #ffffff;
+  margin-inline: auto;
+  margin-block-start: 100px;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%; 
+}
+
+.userdata{
+  width: 270px;
+    height: 20px;
+    border: solid;
+    border-width: 2px;
+    margin: 2.5px;
+}
+.input_div{
+    display: block;
+    text-align: center;
+    width: 300px;
+    margin: auto;
+}
+.register{
+  width: 270px;
+}
