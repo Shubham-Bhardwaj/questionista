@@ -8,19 +8,19 @@ const createQuestion = (title, summary, author, authorName) => {
 
 const fetchQuestions = (userId, askedByMe, answeredByMe) => {
   if (!userId) {
-    const q = "SELECT * FROM question LIMIT 5";
+    const q = "SELECT * FROM question ORDER BY answerCount DESC LIMIT 5";
     return db.execute(q);
   } else if (askedByMe) {
-    const q = "SELECT * FROM question WHERE author = ? LIMIT 5";
+    const q = "SELECT * FROM question WHERE author = ? ORDER BY answerCount DESC LIMIT 5";
     const values = [userId];
     return db.execute(q, values);
   } else if (answeredByMe) {
     const q =
-      "SELECT * FROM question WHERE id IN (SELECT questionId from answer WHERE author = ?) LIMIT 5";
+      "SELECT * FROM question WHERE id IN (SELECT questionId from answer WHERE author = ?) ORDER BY answerCount DESC LIMIT 5";
     const values = [userId];
     return db.execute(q, values);
   } else {
-    const q = "SELECT * FROM question LIMIT 5";
+    const q = "SELECT * FROM question ORDER BY answerCount DESC LIMIT 5";
     return db.execute(q);
   }
 };

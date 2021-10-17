@@ -51,7 +51,7 @@ function showAnswers(questionId) {
           answer.appendChild(author);
           const lastEdit = document.createElement("div");
           lastEdit.className = "lastEdit";
-          lastEdit.innerText = data.answerList[i].lastEdit;
+          lastEdit.innerText = new Date(data.answerList[i].lastEdit).toDateString();
           answer.appendChild(lastEdit);
         }
         const giveAnswer = document.createElement("button");
