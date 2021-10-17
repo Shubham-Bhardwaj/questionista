@@ -7,7 +7,6 @@ const createQuestion = (title, summary, author, authorName) => {
 };
 
 const fetchQuestions = (userId, askedByMe, answeredByMe) => {
-  console.log({ userId, askedByMe, answeredByMe });
   if (!userId) {
     const q = "SELECT * FROM question LIMIT 5";
     return db.execute(q);
