@@ -13,20 +13,20 @@ function createQuestion() {
   input_div.className = "input_div";
   boxContent.appendChild(input_div);
   const title = document.createElement("input");
-  title.className = "title";
+  title.className = "titleQuestion";
   title.placeholder = "Enter the title of the question...";
   input_div.appendChild(title);
   const summary = document.createElement("input");
-  summary.className = "summary";
+  summary.className = "summaryQuestion";
   summary.placeholder = "Enter the summary of the question...";
   input_div.appendChild(summary);
   const submit = document.createElement("button");
   submit.textContent = "Submit";
-  submit.className = "register";
+  submit.className = "submitQuestion";
   input_div.appendChild(submit);
   const cancel = document.createElement("button");
-  cancel.textContent = "Cancel";
-  cancel.className = "register";
+  cancel.textContent = "Close";
+  cancel.className = "cancelQuestion";
   input_div.appendChild(cancel);
   document.querySelector(".modal").style.display = "block";
 
