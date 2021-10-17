@@ -14,7 +14,7 @@ const loggedIn = (userId) => {
     document.querySelector("#askedByMe").remove();
   if (document.querySelector("#askQuestion") != null)
     document.querySelector("#askQuestion").remove();
-    if (document.querySelector("#logout") != null)
+  if (document.querySelector("#logout") != null)
     document.querySelector("#logout").remove();
 
   const answeredByMe = document.createElement("button");
@@ -36,7 +36,7 @@ const loggedIn = (userId) => {
   logout.textContent = "Logout";
   document.querySelector(".login").appendChild(logout);
 
-  loadQuestions(userId,false,false);
+  loadQuestions(userId, false, false);
 
   logout.addEventListener("click", () => {
     fetch("/auth/logout").then((res) => {
@@ -58,7 +58,7 @@ const loggedIn = (userId) => {
     }
   });
   askQuestion.addEventListener("click", () => {
-    createQuestion();
+    createQuestion(userId);
     loadQuestions(userId, false, false);
   });
 };

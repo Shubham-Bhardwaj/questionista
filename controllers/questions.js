@@ -39,7 +39,7 @@ const postFetchQuestions = async (req, res, next) => {
       .json({
         user: user,
         questionList: questionList,
-        message: "Quetions Fetched Sucessfully",
+        message: "Questions Fetched Sucessfully",
       });
   } catch (error) {
     console.log(error);

@@ -1,4 +1,6 @@
-function createQuestion() {
+import { loadQuestions } from "./loadQuestions.js";
+
+function createQuestion(userId) {
   const box = document.createElement("div");
   box.className = "modal";
   const boxContent = document.createElement("div");
@@ -22,11 +24,11 @@ function createQuestion() {
   input_div.appendChild(summary);
   const submit = document.createElement("button");
   submit.textContent = "Submit";
-  submit.className = "submitQuestion";
+  submit.className = "register";
   input_div.appendChild(submit);
   const cancel = document.createElement("button");
   cancel.textContent = "Close";
-  cancel.className = "cancelQuestion";
+  cancel.className = "register";
   input_div.appendChild(cancel);
   document.querySelector(".modal").style.display = "block";
 
@@ -45,7 +47,7 @@ function createQuestion() {
         return res.json();
       })
       .then((data) => {
-        console.log(data.message);
+        console.log(data);
         const msg = document.createElement("div");
         msg.className = "msg";
         msg.textContent = data.message;
@@ -56,6 +58,7 @@ function createQuestion() {
       });
   });
   cancel.addEventListener("click", () => {
+    loadQuestions(userId, false, false);
     document.querySelector(".modal").remove();
   });
 }
