@@ -16,7 +16,6 @@ login.addEventListener("click", () => postlogin());
 
 const home = document.querySelector("#btnHome");
 home.addEventListener("click", () => {
-  // userId = null;
   loadQuestions(userId, false, false);
 });
 

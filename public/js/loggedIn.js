@@ -2,9 +2,20 @@ import { loadQuestions } from "./loadQuestions.js";
 import { createQuestion } from "./createQuestion.js";
 
 const loggedIn = (userId) => {
-  document.querySelector(".modal").remove();
-  document.querySelector("#btnLogin").remove();
-  document.querySelector("#btnSignUp").remove();
+  if (document.querySelector(".modal") != null)
+    document.querySelector(".modal").remove();
+  if (document.querySelector("#btnLogin") != null)
+    document.querySelector("#btnLogin").remove();
+  if (document.querySelector("#btnSignUp") != null)
+    document.querySelector("#btnSignUp").remove();
+  if (document.querySelector("#answeredByMe") != null)
+    document.querySelector("#answeredByMe").remove();
+  if (document.querySelector("#askedByMe") != null)
+    document.querySelector("#askedByMe").remove();
+  if (document.querySelector("#askQuestion") != null)
+    document.querySelector("#askQuestion").remove();
+    if (document.querySelector("#logout") != null)
+    document.querySelector("#logout").remove();
 
   const answeredByMe = document.createElement("button");
   answeredByMe.id = "answeredByMe";
@@ -25,15 +36,15 @@ const loggedIn = (userId) => {
   logout.textContent = "Logout";
   document.querySelector(".login").appendChild(logout);
 
+  loadQuestions(userId,false,false);
+
   logout.addEventListener("click", () => {
     fetch("/auth/logout").then((res) => {
-        console.log(res);
-        console.log('logging out');
-        // alert("Logged out Successfully!");
-        location.reload();
-      
+      console.log(res);
+      console.log("logging out");
+      // alert("Logged out Successfully!");
+      location.reload();
     });
-
   });
 
   answeredByMe.addEventListener("click", () => {
