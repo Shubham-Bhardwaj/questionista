@@ -9,7 +9,7 @@ const postCreateQuestion = async (req, res, next) => {
     return res
       .status(201)
       .type("application/json")
-      .json({ user: user, message: "Quetion Posted Sucessfully" });
+      .json({ user: user, message: "Question Posted Sucessfully" });
   } catch (error) {
     console.log(error);
     res
