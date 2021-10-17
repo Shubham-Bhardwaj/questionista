@@ -62,7 +62,7 @@ function loadQuestions(userId, askedByMe, answeredByMe) {
         question.appendChild(author);
         const lastEdit = document.createElement("div");
         lastEdit.className = "lastEdit";
-        lastEdit.innerText = data.questionList[i].lastEdit;
+        lastEdit.innerText = new Date(data.questionList[i].lastEdit).toDateString();
         question.appendChild(lastEdit);
         const id = data.questionList[i].id;
         question.onclick = () => showAnswers(question.id);
