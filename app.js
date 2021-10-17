@@ -45,8 +45,8 @@ app.use(
 );
 
 app.use("/auth", authRoutes);
-app.use("questions", questionsRoutes);
-app.use("answers", answersRoutes);
+app.use("/questions", questionsRoutes);
+app.use("/answers", answersRoutes);
 
 app.use("/", (req, res, next) => {
   res.sendFile(path.join(__dirname, "views", "index.html"));

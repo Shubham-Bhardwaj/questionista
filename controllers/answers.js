@@ -8,7 +8,7 @@ const postCreateAnswer = async (req, res, next) => {
     return res
       .status(201)
       .type("application/json")
-      .json({ user: user, message: "Answer Posted Sucessfully" });
+      .json({ user: req.session.user, message: "Answer Posted Sucessfully" });
   } catch (error) {
     console.log(error);
     res

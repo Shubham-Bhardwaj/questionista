@@ -5,6 +5,7 @@ const Container = document.getElementsByClassName("Container");
 import { postlogin } from "./postlogin.js";
 import { postsignup } from "./postsignup.js";
 import { loadQuestions } from "./loadQuestions.js";
+
 loadQuestions(userId, askedByMe, answeredByMe);
 
 const signup = document.querySelector("#btnSignUp");
@@ -15,7 +16,6 @@ login.addEventListener("click", () => postlogin());
 
 const home = document.querySelector("#btnHome");
 home.addEventListener("click", () => {
-  userId = null;
   loadQuestions(userId, false, false);
 });
 
