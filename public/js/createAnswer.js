@@ -31,16 +31,16 @@ function createAnswer(questionId) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: {
+      body: JSON.stringify({
         questionId,
         answer: answer.value,
-      },
+      }),
     })
       .then((res) => {
-        return res.json;
+        return res.json();
       })
       .then((data) => {
-          console.log(data);
+        console.log(data);
         // const msg = document.createElement("div");
         // msg.className = "msg";
         // msg.textContent = data.message;
@@ -53,4 +53,4 @@ function createAnswer(questionId) {
       .catch((err) => console.log(err));
   });
 }
-export {createAnswer};
+export { createAnswer };

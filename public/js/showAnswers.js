@@ -43,12 +43,8 @@ function showAnswers(questionId) {
           boxContent.appendChild(answer);
           const title = document.createElement("div");
           title.className = "title";
-          title.innerText = data.answerList[i].title;
+          title.innerText = data.answerList[i].answer;
           answer.appendChild(title);
-          const summary = document.createElement("div");
-          summary.className = "summary";
-          summary.innerText = data.answerList[i].summary;
-          answer.appendChild(summary);
           const author = document.createElement("div");
           author.className = "authorName";
           author.innerText = data.answerList[i].authorName;

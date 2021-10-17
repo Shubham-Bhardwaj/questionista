@@ -21,7 +21,7 @@ CREATE TABLE `question` (
   PRIMARY KEY (`id`),
   KEY `author` (`author`),
   CONSTRAINT `question_ibfk_1` FOREIGN KEY (`author`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `answer` (
   `id` int NOT NULL AUTO_INCREMENT,
